@@ -8,7 +8,7 @@ export default {
       store
     }
   },
-  method: {
+  methods: {
     getMovies() {
       const endpointRoot = 'https://api.themoviedb.org/3/search/movie?api_key=59d77b0a67470408acdf8c71d519c3b4&language=it-IT&query='
       axios.get(endpointRoot + 'dragonball')
@@ -17,14 +17,13 @@ export default {
           console.log(this.store);
         })
     }
-  },
-  created() {
-    this.getMovies();
   }
 }
 </script>
 
-<template></template>
+<template>
+  {{ getMovies() }}
+</template>
 
 <style scoped lang="scss">
 @use "./style/general.scss"
