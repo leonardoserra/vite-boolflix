@@ -15,5 +15,6 @@ export default {
     <input type="text" v-model="store.search" placeholder="cerca per nome.." />
     <!--per debug-->
     <div>{{ store.search }}</div>
+    <div>{{ store.movies }}</div>
 </template>
 <style scoped lang="scss"></style>
