@@ -13,9 +13,13 @@ export default {
     SearchBar
   },
   methods: {
+    searchTitles() {
+      this.getMovies;
+      this.getTvSeries;
+    },
     getMovies() {
       let endpointRoot = 'https://api.themoviedb.org/3/search/movie?api_key=59d77b0a67470408acdf8c71d519c3b4&language=it-IT&query='
-      axios.get(endpointRoot + 'dragonball')
+      axios.get(endpointRoot + this.store.search)
         .then(response => {
           this.store.movies = response.data.results;
           console.log("log di aggiunta Movies:");
@@ -24,26 +28,26 @@ export default {
     },
     getTvSeries() {
       let endpointRoot = 'https://api.themoviedb.org/3/search/tv?api_key=59d77b0a67470408acdf8c71d519c3b4&language=it-IT&query='
-      axios.get(endpointRoot + 'pokemon')
+      axios.get(endpointRoot + this.store.search)
         .then(response => {
           this.store.tvSeries = response.data.results;
           console.log("log di aggiunta serie TV:");
           console.log(this.store);
         })
     }
-  },
-  created() {
-    this.getMovies();
-    this.getTvSeries();
-    console.log("lo store completo: ");
-    console.log(this.store);
-
   }
+  // created() {
+  //   this.getMovies();
+  //   this.getTvSeries();
+  //   console.log("lo store completo: ");
+  //   console.log(this.store);
+
+  // }
 }
 </script>
 
 <template>
-  <SearchBar />
+  <SearchBar @clickSearch="searchTitles()" />
 </template>
 
 <style scoped lang="scss">
