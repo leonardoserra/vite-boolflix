@@ -10,20 +10,21 @@ export default {
   },
   methods: {
     getMovies() {
-      const endpointRoot = 'https://api.themoviedb.org/3/search/movie?api_key=59d77b0a67470408acdf8c71d519c3b4&language=it-IT&query='
+      let endpointRoot = 'https://api.themoviedb.org/3/search/movie?api_key=59d77b0a67470408acdf8c71d519c3b4&language=it-IT&query='
       axios.get(endpointRoot + 'dragonball')
         .then(response => {
-          this.store.movies = response.results;
+          this.store.movies = response.data.results;
           console.log(this.store);
         })
     }
+  },
+  created() {
+    this.getMovies();
   }
 }
 </script>
 
-<template>
-  {{ getMovies() }}
-</template>
+<template></template>
 
 <style scoped lang="scss">
 @use "./style/general.scss"
