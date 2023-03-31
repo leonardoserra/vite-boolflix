@@ -2,6 +2,7 @@
 import { store } from './store.js';
 import axios from 'axios';
 import SearchBar from './components/SearchBar.vue';
+import MyMain from './components/MyMain.vue';
 
 export default {
   data() {
@@ -10,7 +11,8 @@ export default {
     }
   },
   components: {
-    SearchBar
+    SearchBar,
+    MyMain
   },
   methods: {
     searchTitles() {
@@ -48,6 +50,7 @@ export default {
 
 <template>
   <SearchBar @clickSearch="searchTitles" />
+  <MyMain />
 </template>
 
 <style scoped lang="scss">
