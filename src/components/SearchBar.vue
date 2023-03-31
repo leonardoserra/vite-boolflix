@@ -12,9 +12,6 @@ export default {
 </script>
 <template>
     <button @click="$emit('clickSearch')">Cerca</button>
-    <input type="text" v-model="store.search" placeholder="cerca per nome.." />
-    <!--per debug-->
-    <div>{{ store.search }}</div>
-    <div>{{ store.movies }}</div>
+    <input @keyup.enter="$emit('clickSearch')" type="text" v-model="store.search" placeholder="cerca per nome.." />
 </template>
 <style scoped lang="scss"></style>
