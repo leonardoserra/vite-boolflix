@@ -18,12 +18,14 @@ export default {
 </script>
 <template>
     <div class="container">
-        <div class="card" v-for="(movie, index) in store.movies" :key="index">
+        <div class="movie-card" v-for="(movie, index) in store.movies" :key="index">
             <MovieCard :title="movie.title" :og_title="movie.original_title" :language="movie.original_language"
                 :vote="movie.vote_average" />
         </div>
+    </div>
 
-        <div class="card" v-for="(tvSerie, index) in store.tvSeries" :key="index">
+    <div class="container">
+        <div class="tv-series-card" v-for="(tvSerie, index) in store.tvSeries" :key="index">
             <TvSeriesCard :title="tvSerie.name" :og_title="tvSerie.original_name" :language="tvSerie.original_language"
                 :vote="tvSerie.vote_average" />
         </div>
@@ -31,6 +33,14 @@ export default {
 </template>
 <style scoped lang="scss">
 .container {
-    padding: 0 10px
+    padding: 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .movie-card,
+    .tv-series-card {
+        width: calc(100% / 5 - 20px);
+    }
 }
 </style>
