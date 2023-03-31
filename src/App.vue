@@ -1,12 +1,16 @@
 <script>
 import { store } from './store.js';
 import axios from 'axios';
+import SearchBar from './components/SearchBar.vue';
 
 export default {
   data() {
     return {
       store
     }
+  },
+  components: {
+    SearchBar
   },
   methods: {
     getMovies() {
@@ -38,7 +42,9 @@ export default {
 }
 </script>
 
-<template></template>
+<template>
+  <SearchBar />
+</template>
 
 <style scoped lang="scss">
 @use "./style/general.scss"
