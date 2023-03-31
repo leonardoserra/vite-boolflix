@@ -8,6 +8,11 @@ export default {
         og_title: String,
         language: String,
         vote: Number
+    },
+    data() {
+        return {
+            imgPath: "/img-"
+        }
     }
 }
 </script>
@@ -17,7 +22,10 @@ export default {
         <div class="card">
             <div class="element">{{ title }}</div>
             <div class="element">{{ og_title }}</div>
+
+            <img :src="this.imgPath + language + '.png'" :alt="language" class="element" />
             <div class="element">{{ language }}</div>
+
             <div class="element">{{ vote }}</div>
         </div>
 

@@ -29,4 +29,8 @@ export default {
         </div>
     </div>
 </template>
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.container {
+    padding: 0 10px
+}
+</style>
