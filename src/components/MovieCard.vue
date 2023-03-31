@@ -9,9 +9,9 @@ export default {
         language: String,
         vote: Number
     },
-    data() {
-        return {
-            imgPath: "/img-"
+    methods: {
+        getImagePath: function (img) {
+            return new URL(`/flag-${img}.png`, import.meta.url).href;
         }
     }
 }
@@ -23,8 +23,8 @@ export default {
             <div class="element">{{ title }}</div>
             <div class="element">{{ og_title }}</div>
 
-            <img :src="this.imgPath + language + '.png'" :alt="language" class="element" />
-            <div class="element">{{ language }}</div>
+            <img :src="getImagePath(language)" :alt="language" class="element" />
+            <!-- <div class="element">{{ language }}</div> -->
 
             <div class="element">{{ vote }}</div>
         </div>
