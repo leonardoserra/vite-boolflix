@@ -14,6 +14,7 @@ export default {
         MovieCard,
         TvSeriesCard
     }
+
 }
 </script>
 <template>
