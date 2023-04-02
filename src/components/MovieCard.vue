@@ -2,12 +2,18 @@
 
 export default {
     name: 'MovieCard',
+    data() {
+        return {
+            image_path: 'https://image.tmdb.org/t/p/w342/'
+        }
+    },
 
     props: {
         title: String,
         og_title: String,
         language: String,
-        vote: Number
+        vote: Number,
+        poster_img: String
     },
     methods: {
         getImagePath: function (img) {
@@ -22,6 +28,9 @@ export default {
         <div class="card">
             <div class="element">{{ title }}</div>
             <div class="element">{{ og_title }}</div>
+
+            <img class="element poster" :src="image_path + poster_img" />
+
             <img v-if="language == 'ja'" class="image" src="/flag_ja.png" alt="flag_japan">
             <img v-else-if="language == 'en'" class="image" src="/flag_en.png" alt="flag_uk">
             <img v-else-if="language == 'es'" class="image" src="/flag_es.png" alt="flag_spain">
