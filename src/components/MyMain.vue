@@ -17,6 +17,7 @@ export default {
 }
 </script>
 <template>
+    <h1 class="category">Movies</h1>
     <div class="container">
         <div class="movie-card" v-for="(movie, index) in store.movies" :key="index">
             <MovieCard :title="movie.title" :og_title="movie.original_title" :language="movie.original_language"
@@ -24,6 +25,7 @@ export default {
         </div>
     </div>
 
+    <h1 class="category">Tv Series</h1>
     <div class="container">
         <div class="tv-series-card" v-for="(tvSerie, index) in store.tvSeries" :key="index">
             <TvSeriesCard :title="tvSerie.name" :og_title="tvSerie.original_name" :language="tvSerie.original_language"
@@ -31,7 +33,15 @@ export default {
         </div>
     </div>
 </template>
+
+
 <style scoped lang="scss">
+.category {
+    padding: 0 20px;
+    background-color: rgb(48, 48, 48);
+    color: white;
+}
+
 .container {
     padding: 0 10px;
     display: flex;

@@ -24,7 +24,9 @@ export default {
             <div class="element">{{ title }}</div>
             <div class="element">{{ og_title }}</div>
 
-            <img class="element poster" :src="image_path + poster_img" />
+            <div class="img-wrapper">
+                <img class="element poster" :src="image_path + poster_img" :alt="title" />
+            </div>
 
             <img v-if="language == 'ja'" class="image" src="/flag_ja.png" alt="flag_japan">
             <img v-else-if="language == 'en'" class="image" src="/flag_en.png" alt="flag_uk">
@@ -48,15 +50,25 @@ export default {
         padding: 10px;
 
         width: 300px;
-        background-color: rgb(252, 82, 82);
 
         .element {
             margin: 5px 0;
-            background-color: rgb(88, 177, 255);
         }
 
         .image {
             width: 30px;
+        }
+
+        .img-wrapper {
+            height: 400px;
+            width: 280px;
+            overflow: hidden;
+
+            .element.poster {
+                object-fit: cover;
+                height: 400px;
+                width: 280px;
+            }
         }
     }
 }
