@@ -51,9 +51,13 @@ export default {
                 <img v-else-if="language == 'cs'" class="image" src="/flag_cs.png" alt="flag_slovakia">
                 <img v-else-if="language == 'ko'" class="image" src="/flag_ko.png" alt="flag_korea">
                 <div v-else class="element">{{ language }}</div>
-                <!-- <img :src="getImagePath(this.language)" :alt="language" class="element" /> -->
 
-                <div class="element">{{ starVote }}</div>
+                <!-- voto in stelle -->
+                <div class="star-container">
+                    <div v-for="star in starVote" class="element"><i class="fa-solid fa-star"></i></div>
+                    <div v-for="star in (5 - starVote)" class="element"><i class="fa-regular fa-star"></i></div>
+                </div>
+
             </div>
         </div>
 
@@ -85,6 +89,12 @@ export default {
                 height: 400px;
                 width: 280px;
             }
+        }
+
+        .star-container {
+            width: 100px;
+            display: flex;
+            justify-content: space-between;
         }
     }
 }
