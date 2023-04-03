@@ -7,7 +7,8 @@ export default {
         return {
             store
         }
-    }
+    },
+    emits: ['clickSearch']
 }
 </script>
 <template>
