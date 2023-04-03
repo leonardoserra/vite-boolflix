@@ -48,6 +48,7 @@
 
                 .element.poster {
                     object-fit: cover;
+                    margin: 0;
                     height: 400px;
                     width: 280px;
                 }
@@ -58,6 +59,10 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+
+                i {
+                    color: #ffbd00;
+                }
             }
 
         }

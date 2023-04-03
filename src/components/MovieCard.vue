@@ -34,8 +34,9 @@ export default {
         <div class="card">
 
             <div class="img-wrapper">
-                <img class="element poster" :src="image_path + poster_img" :alt="title" />
-                <!-- <img v-else class="element poster" src="/img_error.jpg" :alt="title" /> -->
+                <img v-if="poster_img == null || !poster_img.length" class="element poster" src="/img_error.jpg"
+                    :alt="title" />
+                <img v-else class="element poster" :src="image_path + poster_img" :alt="title" />
             </div>
 
             <div class="info d-none">
