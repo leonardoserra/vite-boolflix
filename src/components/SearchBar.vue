@@ -13,21 +13,42 @@ export default {
 </script>
 <template>
     <div class="my-header">
-        <button @click="$emit('clickSearch')">Cerca</button>
-        <input @keyup.enter="$emit('clickSearch')" type="text" v-model="store.search" placeholder="cerca per nome.." />
+        <div class="logo-section">
+            <h1>BOOLFLIX</h1>
+        </div>
+        <div class="search-section">
+            <button @click="$emit('clickSearch')">Cerca</button>
+            <input @keyup.enter="$emit('clickSearch')" type="text" v-model="store.search" placeholder="cerca per nome.." />
+        </div>
     </div>
 </template>
 <style scoped lang="scss">
 .my-header {
-    height: 50px;
     display: flex;
-    justify-content: end;
-    gap: 5px;
-    padding: 10px 0;
+    justify-content: space-between;
+    padding: 5px 15px;
+    background-color: black;
+    align-items: center;
 
-    button,
-    input {
-        padding: 0 5px;
+    .logo-section {
+        color: red;
+
+    }
+
+
+    .search-section {
+
+        height: 50px;
+        display: flex;
+        justify-content: end;
+        gap: 5px;
+        padding: 10px 0;
+
+        button,
+        input {
+            padding: 0 5px;
+        }
+
     }
 }
 </style>
