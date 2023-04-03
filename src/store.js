@@ -3,6 +3,7 @@ export const store = reactive(
     {
         movies: {},
         tvSeries: [],
-        search: ''
+        search: '',
+        apiToken: '59d77b0a67470408acdf8c71d519c3b4',
     }
 )
