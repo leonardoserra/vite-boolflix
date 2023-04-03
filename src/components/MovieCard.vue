@@ -76,67 +76,7 @@ export default {
     </div>
 </template>
 <style scoped lang="scss">
-.container {
-    .bold {
-        font-weight: 700;
-    }
+@use '../style/partials/_mixins.scss';
 
-    .card {
-        margin: 20px 0;
-        padding: 10px;
-        width: 300px;
-
-        .d-none {
-            display: none;
-        }
-
-        &:hover {
-            .img-wrapper {
-                display: none;
-            }
-
-            .info.d-none {
-                display: block;
-                height: 400px;
-                width: 280px;
-                background-color: black;
-                overflow: hidden;
-                padding: 25px;
-
-                .info-section {
-                    margin-top: 15px;
-                }
-
-            }
-        }
-
-        .element {
-            margin: 5px 0;
-        }
-
-        .image {
-            width: 30px;
-        }
-
-        .img-wrapper {
-            height: 400px;
-            width: 280px;
-            overflow: hidden;
-
-            .element.poster {
-                object-fit: cover;
-                height: 400px;
-                width: 280px;
-            }
-        }
-
-        .star-container {
-            width: 100px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-    }
-}
+@include mixins.card-style;
 </style>

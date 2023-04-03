@@ -20,8 +20,11 @@ export default {
 <template>
     <main>
 
-        <div v-if="!store.movies.length && !store.tvSeries.length" class="request">
+        <div v-if="!store.movies.length && !store.tvSeries.length && !store.search.length" class="request">
             <h2>Cerca qualcosa, i risultati appariranno qui..</h2>
+        </div>
+        <div v-else-if="!store.movies.length && !store.tvSeries.length && store.search.length">
+            <h2>La ricerca non ha prodotto risultati..</h2>
         </div>
         <div v-else class="monitor">
             <section>
