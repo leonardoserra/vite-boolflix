@@ -68,6 +68,7 @@ export default {
 
     .movie-card,
     .tv-series-card {
+        margin: 0 10px;
         width: calc(100% / 5 - 20px);
     }
 }
