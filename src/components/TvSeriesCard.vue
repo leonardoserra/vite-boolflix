@@ -30,9 +30,10 @@ export default {
             <div class="img-wrapper">
                 <img class="element poster" :src="image_path + poster_img" :alt="title" />
             </div>
+
             <div class="info">
                 <div class="element">{{ title }}</div>
-                <div class="element">{{ og_title }}</div>
+                <div v-if="og_title != title" class="element">{{ og_title }}</div>
 
 
                 <img v-if="language == 'ja'" class="image" src="/flag_ja.png" alt="flag_japan">
@@ -47,6 +48,7 @@ export default {
                 <div v-else class="element">{{ language }}</div>
 
                 <div class="star-container">
+                    <div>Voto:&nbsp;</div>
                     <div v-for="star in starVote" class="element"><i class="fa-solid fa-star"></i></div>
                     <div v-for="star in (5 - starVote)" class="element"><i class="fa-regular fa-star"></i></div>
                 </div>
@@ -89,6 +91,8 @@ export default {
             width: 100px;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+
         }
     }
 }

@@ -38,7 +38,7 @@ export default {
 
             <div class="info">
                 <div class="element">{{ title }}</div>
-                <div class="element">{{ og_title }}</div>
+                <div v-if="og_title != title" class="element">{{ og_title }}</div>
 
 
                 <img v-if="language == 'ja'" class="image" src="/flag_ja.png" alt="flag_japan">
@@ -54,6 +54,7 @@ export default {
 
                 <!-- voto in stelle -->
                 <div class="star-container">
+                    <div>Voto:&nbsp;</div>
                     <div v-for="star in starVote" class="element"><i class="fa-solid fa-star"></i></div>
                     <div v-for="star in (5 - starVote)" class="element"><i class="fa-regular fa-star"></i></div>
                 </div>
@@ -95,6 +96,7 @@ export default {
             width: 100px;
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
     }
 }
