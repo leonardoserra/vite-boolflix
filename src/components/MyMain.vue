@@ -19,6 +19,26 @@ export default {
         MySelectTvSeries
     },
     methods: {
+        // filterForGenreMovie() {
+        //     this.store.movies.forEach(element => {
+        //         if (element.genre_ids.includes(this.store.selectedMovieGenre)) {
+        //             if (this.store.movies.length > 0) {
+        //                 this.store.movies = [];
+        //             } else {
+        //                 this.store.movies.push(element);
+        //             }
+        //         }
+        //     })
+        //     console.log(this.store.movies)
+        // },
+
+        // filterForGenreTvSeries() {
+        //     const newTvSeries = this.store.tvSeries.filter(element => {
+        //         element.genre_ids.includes(this.store.selectedTvSerieGenre);
+        //     })
+        //     this.store.tvSeries = newTvSeries;
+        // }
+
 
     }
 
@@ -37,12 +57,12 @@ export default {
 
             <section v-show="store.tvSeries.length">
                 <h1 class="category">Movies</h1>
-                <MySelectMovie :moviesGenres="store.movieGenres" :tvSeriesGenres="store.tvSeriesGenres" />
+                <MySelectMovie @movieFilterEvent="(filterForGenreMovie)" :moviesGenres="store.movieGenres"
+                    :tvSeriesGenres="store.tvSeriesGenres" />
                 <div class="container">
                     <div class="movie-card" v-for="(movie, index) in store.movies" :key="index">
-                        <MovieCard
+                        <MovieCard :title="movie.title" :og_title="movie.original_title" :language="movie.original_language"
                             v-if="store.selectedMovieGenre == '' || movie.genre_ids.includes(store.selectedMovieGenre)"
-                            :title="movie.title" :og_title="movie.original_title" :language="movie.original_language"
                             :vote="movie.vote_average" :poster_img="movie.poster_path" />
                     </div>
                 </div>
@@ -50,7 +70,8 @@ export default {
             </section>
             <section v-show="store.tvSeries.length">
                 <h1 class="category">Tv Series</h1>
-                <MySelectTvSeries :tvSeriesGenres="store.tvSeriesGenres" :moviesGenres="store.movieGenres" />
+                <MySelectTvSeries @tvSerieFilterEvent="(filterForGenreTvSeries)" :tvSeriesGenres="store.tvSeriesGenres"
+                    :moviesGenres="store.movieGenres" />
                 <div class="container">
                     <div class="tv-series-card" v-for="(tvSerie, index) in store.tvSeries" :key="index">
                         <TvSeriesCard :title="tvSerie.name" :og_title="tvSerie.original_name"
@@ -77,10 +98,10 @@ export default {
 }
 
 .container {
-    padding: 0 10px;
+    // padding: 0 10px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: start;
 
     .movie-card,
     .tv-series-card {

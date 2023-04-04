@@ -16,7 +16,7 @@ export default {
 <template>
     <div class="select-container">
         <label for="movieGenres">Filtra per genere:&nbsp;</label>
-        <select name="movieGenres" id="movieGenres" v-model="store.selectedMovieGenre">
+        <select name="movieGenres" id="movieGenres" @change="$emit('movieFilterEvent')" v-model="store.selectedMovieGenre">
             <option value="">-Seleziona genere-</option>
             <option v-for="genre in moviesGenres" :key="genre.id" :value="genre.id">{{ genre.name }}</option>
         </select>
