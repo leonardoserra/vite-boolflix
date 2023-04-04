@@ -2,7 +2,8 @@
 import { store } from "../store.js";
 import MovieCard from "./MovieCard.vue"
 import TvSeriesCard from "./TvSeriesCard.vue"
-import MySelect from "./MySelect.vue"
+import MySelectMovie from "./MySelectMovie.vue"
+import MySelectTvSeries from "./MySelectTvSeries.vue"
 
 export default {
     name: 'MyMain',
@@ -14,7 +15,8 @@ export default {
     components: {
         MovieCard,
         TvSeriesCard,
-        MySelect
+        MySelectMovie,
+        MySelectTvSeries
     }
 
 }
@@ -29,9 +31,10 @@ export default {
             <h2>La ricerca non ha prodotto risultati..</h2>
         </div>
         <div v-else class="monitor">
+
             <section v-show="store.tvSeries.length">
                 <h1 class="category">Movies</h1>
-                <MySelect :moviesGenres="store.movieGenres" />
+                <MySelectMovie :moviesGenres="store.movieGenres" :tvSeriesGenres="store.tvSeriesGenres" />
                 <div class="container">
                     <div class="movie-card" v-for="(movie, index) in store.movies" :key="index">
                         <MovieCard :title="movie.title" :og_title="movie.original_title" :language="movie.original_language"
@@ -42,8 +45,7 @@ export default {
             </section>
             <section v-show="store.tvSeries.length">
                 <h1 class="category">Tv Series</h1>
-                <MySelect :tvSeriesGenres="store.tvSeriesGenres" />
-
+                <MySelectTvSeries :tvSeriesGenres="store.tvSeriesGenres" :moviesGenres="store.movieGenres" />
                 <div class="container">
                     <div class="tv-series-card" v-for="(tvSerie, index) in store.tvSeries" :key="index">
                         <TvSeriesCard :title="tvSerie.name" :og_title="tvSerie.original_name"
