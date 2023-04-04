@@ -5,10 +5,9 @@
         }
 
         .card {
-            // height: 400px;
-            // width: 100%;
-            // margin: 20px 0;
-            padding: 10px;
+            height: 320px;
+            width: 213.11px;
+
 
             .d-none {
                 overflow: hidden;
@@ -18,15 +17,18 @@
             &:hover {
                 .img-wrapper {
                     display: none;
+                    overflow: hidden;
+
                 }
 
                 .info.d-none {
-                    margin: 0;
+                    // margin: 0;
                     display: block;
-                    height: 400px;
-                    width: 280px;
-                    background-color: black;
+                    height: 100%;
+                    width: 100%;
+                    background-color: #000000;
                     padding: 40px;
+
 
                     .info-section {
                         margin-top: 15px;
@@ -44,15 +46,15 @@
             }
 
             .img-wrapper {
-                height: 400px;
-                width: 280px;
+                height: 100%;
+                width: 100%;
                 overflow: hidden;
 
                 .element.poster {
                     object-fit: cover;
-                    margin: 0;
-                    height: 400px;
-                    width: 280px;
+                    height: 100%;
+                    width: 100%;
+
                 }
             }
 

@@ -53,8 +53,8 @@ export default {
         <div v-else-if="!store.movies.length && !store.tvSeries.length && store.search.length">
             <h2>La ricerca non ha prodotto risultati..</h2>
         </div>
-        <div v-else class="monitor">
 
+        <div v-else class="monitor">
             <section v-show="store.tvSeries.length">
                 <h1 class="category">Movies</h1>
                 <MySelectMovie @movieFilterEvent="(filterForGenreMovie)" :moviesGenres="store.movieGenres"
@@ -89,24 +89,28 @@ export default {
 
 
 <style scoped lang="scss">
-.category {
-    padding: 0 20px;
-    background-color: rgb(0, 0, 0);
-    color: white;
-    height: 50px;
-    line-height: 50px;
-}
+.monitor {
 
-.container {
-    // padding: 0 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
 
-    .movie-card,
-    .tv-series-card {
-        margin: 0 10px;
-        width: calc(100% / 5 - 20px);
+    .category {
+        padding: 0 20px;
+        background-color: rgb(0, 0, 0);
+        color: white;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .container {
+        // padding: 0 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: start;
+
+        .movie-card,
+        .tv-series-card {
+            // margin: 0 10px;
+            width: calc(100% / 5);
+        }
     }
 }
 </style>
