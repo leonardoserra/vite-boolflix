@@ -53,14 +53,15 @@ export default {
           console.log(this.store);
         })
     }
-  }
-  // created() {
-  //   this.getMovies();
-  //   this.getTvSeries();
-  //   console.log("lo store completo: ");
-  //   console.log(this.store);
+  },
+  created() {
+    axios.get("https://api.themoviedb.org/3/genre/movie/list?api_key=59d77b0a67470408acdf8c71d519c3b4")
+      .then(response => {
+        this.store.genres = response.data.genres;
+        console.log(this.store.genres);
+      })
 
-  // }
+  }
 }
 </script>
 
