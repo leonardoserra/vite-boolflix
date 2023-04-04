@@ -55,12 +55,14 @@ export default {
     }
   },
   created() {
-    axios.get("https://api.themoviedb.org/3/genre/movie/list?api_key=59d77b0a67470408acdf8c71d519c3b4")
+    //prendo i generi movie da api
+    axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.store.apiToken}`)
       .then(response => {
         this.store.movieGenres = response.data.genres;
         console.log(this.store.movieGenres);
       });
-    axios.get("https://api.themoviedb.org/3/genre/tv/list?api_key=59d77b0a67470408acdf8c71d519c3b4")
+    // prendo generi serieTv da api
+    axios.get(`https://api.themoviedb.org/3/genre/tv/list?api_key=${this.store.apiToken}`)
       .then(response => {
         this.store.tvSeriesGenres = response.data.genres;
         console.log(this.store.tvSeriesGenres);
