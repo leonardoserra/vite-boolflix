@@ -6,6 +6,8 @@ export const store = reactive(
         search: '',
         apiToken: '59d77b0a67470408acdf8c71d519c3b4',
         movieGenres: [],
-        tvSeriesGenres: []
+        tvSeriesGenres: [],
+        selectedMovieGenre: '',
+        selectedTvSerieGenre: ''
     }
 )

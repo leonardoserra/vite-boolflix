@@ -4,6 +4,11 @@ export default {
     name: "MySelectTvSeries",
     props: {
         tvSeriesGenres: Array
+    },
+    data() {
+        return {
+            store
+        }
     }
 }
 </script>
@@ -11,7 +16,7 @@ export default {
 <template>
     <div class="select-container">
         <label for="tvSeriesGenres">Filtra per genere:&nbsp;</label>
-        <select name="tvSeriesGenres" id="tvSeriesGenres">
+        <select name="tvSeriesGenres" id="tvSeriesGenres" v-model="store.selectedTvSerieGenre">
             <option value="">-Seleziona genere-</option>
             <option v-for="genre in tvSeriesGenres" :key="genre.id" :value="genre.id">{{ genre.name }}</option>
         </select>

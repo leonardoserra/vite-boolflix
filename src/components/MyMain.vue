@@ -17,6 +17,9 @@ export default {
         TvSeriesCard,
         MySelectMovie,
         MySelectTvSeries
+    },
+    methods: {
+
     }
 
 }
@@ -37,7 +40,9 @@ export default {
                 <MySelectMovie :moviesGenres="store.movieGenres" :tvSeriesGenres="store.tvSeriesGenres" />
                 <div class="container">
                     <div class="movie-card" v-for="(movie, index) in store.movies" :key="index">
-                        <MovieCard :title="movie.title" :og_title="movie.original_title" :language="movie.original_language"
+                        <MovieCard
+                            v-if="store.selectedMovieGenre == '' || movie.genre_ids.includes(store.selectedMovieGenre)"
+                            :title="movie.title" :og_title="movie.original_title" :language="movie.original_language"
                             :vote="movie.vote_average" :poster_img="movie.poster_path" />
                     </div>
                 </div>
@@ -49,6 +54,7 @@ export default {
                 <div class="container">
                     <div class="tv-series-card" v-for="(tvSerie, index) in store.tvSeries" :key="index">
                         <TvSeriesCard :title="tvSerie.name" :og_title="tvSerie.original_name"
+                            v-if="store.selectedTvSerieGenre == '' || tvSerie.genre_ids.includes(store.selectedTvSerieGenre)"
                             :language="tvSerie.original_language" :vote="tvSerie.vote_average"
                             :poster_img="tvSerie.poster_path" />
                     </div>
