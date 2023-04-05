@@ -69,7 +69,52 @@ export default {
       });
 
   }
+  // computed: {
+  //   filterForGenreMovie() {
+  //     this.store.movies.forEach(element => {
+  //       if (element.genre_ids.includes(this.store.selectedMovieGenre)) {
+  //         if (this.store.movies.length > 0) {
+  //           this.store.movies = [];
+  //         } else {
+  //           this.store.movies.push(element);
+  //         }
+  //       }
+  //     })
+  //     console.log(this.store.movies)
+  //   },
+
+  //   filterForGenreTvSeries() {
+  //     const newTvSeries = this.store.tvSeries.filter(element => {
+  //       element.genre_ids.includes(this.store.selectedTvSerieGenre);
+  //     })
+  //     this.store.tvSeries = newTvSeries;
+  //   },
+  // searchTitles() {
+  //   this.getMovies();
+  //   this.getTvSeries();
+  // }
+
+  //prendo i generi movie da api
+
+  // funzioneProva() {
+
+  //   axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.store.apiToken}`)
+  //     .then(response => {
+  //       this.store.movieGenres = response.data.genres;
+  //       console.log(this.store.movieGenres);
+  //     });
+  //   // prendo generi serieTv da api
+  //   axios.get(`https://api.themoviedb.org/3/genre/tv/list?api_key=${this.store.apiToken}`)
+  //     .then(response => {
+  //       this.store.tvSeriesGenres = response.data.genres;
+  //       console.log(this.store.tvSeriesGenres);
+  //     });
+  // }
+
+
 }
+
+
 </script>
 
 <template>

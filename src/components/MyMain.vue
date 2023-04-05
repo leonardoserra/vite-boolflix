@@ -18,7 +18,7 @@ export default {
         MySelectMovie,
         MySelectTvSeries
     },
-    methods: {
+    computed: {
         // filterForGenreMovie() {
         //     this.store.movies.forEach(element => {
         //         if (element.genre_ids.includes(this.store.selectedMovieGenre)) {
