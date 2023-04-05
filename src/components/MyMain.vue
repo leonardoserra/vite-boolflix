@@ -55,7 +55,7 @@ export default {
         </div>
 
         <div v-else class="monitor">
-            <section v-show="store.tvSeries.length">
+            <section v-if="store.movies.length">
                 <h1 class="category">Movies</h1>
                 <MySelectMovie @movieFilterEvent="(filterForGenreMovie)" :moviesGenres="store.movieGenres"
                     :tvSeriesGenres="store.tvSeriesGenres" />
@@ -68,7 +68,7 @@ export default {
                 </div>
 
             </section>
-            <section v-show="store.tvSeries.length">
+            <section v-if="store.tvSeries.length">
                 <h1 class="category">Tv Series</h1>
                 <MySelectTvSeries @tvSerieFilterEvent="(filterForGenreTvSeries)" :tvSeriesGenres="store.tvSeriesGenres"
                     :moviesGenres="store.movieGenres" />
