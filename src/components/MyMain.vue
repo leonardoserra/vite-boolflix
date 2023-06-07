@@ -105,6 +105,7 @@ export default {
         display: flex;
         flex-wrap: wrap;
         justify-content: start;
+        margin-left: 50px;
 
         .movie-card,
         .tv-series-card {
